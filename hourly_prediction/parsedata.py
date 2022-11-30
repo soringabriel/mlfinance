@@ -2,7 +2,9 @@ import json
 import csv
 import math
 import requests
-  
+
+past_data_size = 60
+
 etoroData = requests.get("https://candle.etoro.com/candles/desc.json/OneHour/1000/28")
 data = json.loads(etoroData.text)
 
@@ -28,9 +30,9 @@ for v in data:
         differences.append(percentage)
     prev = v['Close']
 
-train_data = differences[60:]
+train_data = differences[past_data_size:]
 index = 0
-size = 60
+size = past_data_size
 rows = []
 for v in train_data:
     row = differences[index:size]
@@ -44,7 +46,7 @@ for v in train_data:
     size += 1
     rows.append(row)
     
-toPredict = [rows.pop()[:60]]
+toPredict = [rows.pop()[:past_data_size]]
     
 with open("data.txt", "w", newline="") as f:
     writer = csv.writer(f)

@@ -3,3 +3,13 @@
 30min_prediction/predictions.txt
 daily_prediction/predictions.txt
 hourly_prediction/predictions.txt
+5min_prediction/data.txt
+15min_prediction/data.txt
+30min_prediction/data.txt
+daily_prediction/data.txt
+hourly_prediction/data.txt
+5min_prediction/topredict.txt
+15min_prediction/topredict.txt
+30min_prediction/topredict.txt
+daily_prediction/topredict.txt
+hourly_prediction/topredict.txt
