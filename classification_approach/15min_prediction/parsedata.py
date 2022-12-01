@@ -3,7 +3,7 @@ import csv
 import math
 import requests
 
-past_data_size = 60
+past_data_size = 120
 
 etoroData = requests.get("https://candle.etoro.com/candles/desc.json/FifteenMinutes/1000/28")
 data = json.loads(etoroData.text)

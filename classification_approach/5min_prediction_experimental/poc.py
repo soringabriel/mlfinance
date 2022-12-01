@@ -8,7 +8,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 
-past_data_size = 120
+past_data_size = 480
 
 training_data = pd.read_csv('data.txt', header=None)
 X = np.array(training_data.iloc[:, 0:past_data_size])
