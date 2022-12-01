@@ -21,7 +21,7 @@ predictions = {}
 # KNN (with different K and taking the biggest predicted value + with K = 30)
 p_knn_30 = 0
 
-for n in range(30,900):
+for n in range(30,len(training_data)):
     knn = KNeighborsClassifier(n_neighbors=n)
     knn.fit(X, y)
 
