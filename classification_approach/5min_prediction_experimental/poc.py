@@ -7,6 +7,7 @@ from sklearn import linear_model
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import PassiveAggressiveClassifier
 
 past_data_size = 480
 
@@ -57,6 +58,11 @@ rf = RandomForestClassifier(max_depth=2, random_state=0)
 rf = rf.fit(X, y)
 p_random_forests = rf.predict(to_predict)[0]
 
+# Passive aggresive Classifier
+pac = PassiveAggressiveClassifier(max_iter=1000, random_state=0, tol=1e-3)
+pac.fit(X, y)
+p_pac = pac.predict(to_predict)[0]
+
 pred = [list(to_predict[0])]
 pred[0].append(p_knn_30)
 pred[0].append(p_knn_max)
@@ -64,6 +70,7 @@ pred[0].append(p_svm)
 pred[0].append(p_naive_bayes)
 pred[0].append(p_decission_tree)
 pred[0].append(p_random_forests)
+pred[0].append(p_pac)
 
 with open("predictions.txt", "a", newline="") as f:
     writer = csv.writer(f)
